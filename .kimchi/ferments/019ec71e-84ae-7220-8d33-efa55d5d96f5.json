@@ -1,0 +1,15 @@
+{
+  "id": "019ec71e-84ae-7220-8d33-efa55d5d96f5",
+  "name": "Currently model is giving correct reply for the question",
+  "description": "Currently model is giving correct reply for the question asked, also it is not getting trained from the chats uploaded",
+  "status": "draft",
+  "worktree": {
+    "path": "/home/aamanprime/aichatting"
+  },
+  "scoping": {},
+  "phases": [],
+  "decisions": [],
+  "memories": [],
+  "createdAt": "2026-06-14T17:12:06.574Z",
+  "updatedAt": "2026-06-14T17:12:06.574Z"
+}

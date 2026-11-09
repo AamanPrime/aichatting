@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HeartEcho — Chat with the ones you miss</title>
+  <meta name="description" content="Upload your conversations, let AI analyze the relationship and chat like the person you miss. All data stays on your device." />
+  <meta property="og:title" content="HeartEcho — Chat with the ones you miss" />
+  <meta property="og:description" content="AI learns their texting style from your chats. 100% private — runs in your browser." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>">
+</head>
+<body>
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ===== LANDING PAGE ===== -->
+  <div id="page-landing" class="page active">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <span class="brand-icon">💕</span>
+        <span class="brand-text">HeartEcho</span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <button class="btn btn-ghost btn-sm" id="nav-settings" title="AI Settings">⚙️</button>
+        <button class="btn btn-nav" id="nav-get-started">Get Started</button>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-badge">🔒 100% Private — All AI runs in your browser</div>
+      <h1 class="hero-title">
+        Chat with the ones<br>
+        <span class="gradient-text">you miss</span>
+      </h1>
+      <p class="hero-subtitle">
+        Upload your conversations. Our AI learns their texting style and lets you relive those chats — all without your data ever leaving your device.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" id="hero-start">
+          <span>💝</span> Start Now — It's Free
+        </button>
+        <button class="btn btn-ghost btn-lg" id="hero-demo">
+          See Demo
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-number">100%</span><span class="stat-label">Private</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-number">0</span><span class="stat-label">Data Uploaded</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-number">∞</span><span class="stat-label">Memories</span></div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <h2 class="section-title">Why HeartEcho?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🧬</div>
+          <h3>Style Fingerprint</h3>
+          <p>AI analyzes texting personality — emoji habits, favorite phrases, reply patterns. Share your results!</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Relationship Timeline</h3>
+          <p>See your chat history as a beautiful interactive timeline — first message, peak moments, milestones.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>AI Chat Clone</h3>
+          <p>Chat with an AI that texts exactly like them. Same slang, same emojis, same vibe.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3>Memory Recall</h3>
+          <p>Ask "remember that trip?" and the AI actually finds and references real past messages.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎮</div>
+          <h3>Guess The AI</h3>
+          <p>Can you tell which message is real and which is AI? Play the game and share your score!</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Zero Data Leaks</h3>
+          <p>Everything runs in your browser. No servers, no uploads, no tracking. Your memories stay yours.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Upload Your Chat</h3>
+            <p>Export from WhatsApp, Telegram, Messenger, or paste plain text. We support all formats.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>AI Learns Their Style</h3>
+            <p>Our AI analyzes emoji usage, phrase patterns, reply timing, and message tone — all in your browser.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Start Chatting</h3>
+            <p>Open the chat and start talking. The AI responds just like them, recalling real memories.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <span class="brand-icon">💕</span>
+        <span>HeartEcho — Your memories, your device, your privacy.</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===== UPLOAD PAGE ===== -->
+  <div id="page-upload" class="page">
+    <div class="page-header">
+      <button class="btn btn-back" id="upload-back">← Back</button>
+      <h2>Upload Conversation</h2>
+      <div class="privacy-badge">🔒 Data stays on your device</div>
+    </div>
+    <div class="upload-container">
+      <div class="upload-zone" id="drop-zone">
+        <div class="upload-icon">💌</div>
+        <h3>Drop your chat export here</h3>
+        <p>or click to browse files</p>
+        <p class="upload-formats">Supports: WhatsApp (.txt), Telegram (.json), Messenger (.json), Plain text</p>
+        <input type="file" id="file-input" accept=".txt,.json,.csv" hidden />
+      </div>
+      <div class="upload-progress" id="upload-progress" style="display: none;">
+        <div class="progress-heart">
+          <div class="heart-fill" id="heart-fill"></div>
+          💕
+        </div>
+        <p class="progress-text" id="progress-text">Parsing conversation...</p>
+      </div>
+      <div class="upload-or">
+        <span>or paste your conversation</span>
+      </div>
+      <textarea class="paste-area" id="paste-area" placeholder="Paste your chat conversation here...&#10;&#10;Example format:&#10;12/1/23, 9:41 PM - Sarah: hey how are you? 😊&#10;12/1/23, 9:42 PM - You: doing great! what about you?&#10;12/1/23, 9:42 PM - Sarah: pretty good hehe ❤️"></textarea>
+      <button class="btn btn-primary btn-lg upload-submit" id="paste-submit">
+        <span>✨</span> Analyze Conversation
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== DASHBOARD PAGE ===== -->
+  <div id="page-dashboard" class="page">
+    <div class="page-header">
+      <button class="btn btn-back" id="dash-back">← Back</button>
+      <h2 id="dash-title">Conversation Dashboard</h2>
+      <div class="dash-actions">
+        <button class="btn btn-ghost btn-sm" id="dash-delete" title="Delete data">🗑️ Delete</button>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <!-- Style Fingerprint Card -->
+      <div class="dash-card fingerprint-card" id="fingerprint-section">
+        <div class="card-header">
+          <h3>🧬 Style Fingerprint</h3>
+          <button class="btn btn-sm btn-accent" id="share-fingerprint">📸 Share</button>
+        </div>
+        <div class="fingerprint-content" id="fingerprint-content">
+          <!-- Filled dynamically -->
+        </div>
+      </div>
+
+      <!-- Relationship Timeline -->
+      <div class="dash-card timeline-card" id="timeline-section">
+        <div class="card-header">
+          <h3>📊 Relationship Timeline</h3>
+        </div>
+        <div class="timeline-content">
+          <canvas id="timeline-chart"></canvas>
+          <div class="timeline-milestones" id="timeline-milestones"></div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="dash-card actions-card">
+        <button class="action-btn" id="start-chat">
+          <span class="action-icon">💬</span>
+          <span class="action-label">Chat with AI</span>
+          <span class="action-desc">Start a conversation</span>
+        </button>
+        <button class="action-btn" id="start-game">
+          <span class="action-icon">🎮</span>
+          <span class="action-label">Guess The AI</span>
+          <span class="action-desc">Real or AI? Play now</span>
+        </button>
+        <button class="action-btn" id="export-data">
+          <span class="action-icon">📦</span>
+          <span class="action-label">Export Data</span>
+          <span class="action-desc">Download your data</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CHAT PAGE ===== -->
+  <div id="page-chat" class="page">
+    <div class="chat-header">
+      <button class="btn btn-back" id="chat-back">←</button>
+      <div class="chat-person">
+        <div class="chat-avatar" id="chat-avatar">S</div>
+        <div class="chat-person-info">
+          <span class="chat-name" id="chat-name">Sarah</span>
+          <span class="chat-status">AI Clone • powered by HeartEcho</span>
+        </div>
+      </div>
+      <div class="chat-header-actions">
+        <span class="engine-badge" id="chat-engine-badge" title="AI Engine">⚡ Lightweight</span>
+        <button class="btn btn-ghost btn-sm" id="chat-settings" title="AI Settings">⚙️</button>
+        <button class="btn btn-ghost btn-sm" id="chat-recall" title="Memory Recall">🧠</button>
+      </div>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-welcome">
+        <span class="welcome-emoji">💕</span>
+        <p>Start chatting! The AI will respond in <strong id="clone-name">Sarah</strong>'s style.</p>
+        <p class="welcome-hint">Try asking about a shared memory...</p>
+      </div>
+    </div>
+    <div class="chat-typing" id="chat-typing" style="display: none;">
+      <div class="typing-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <span class="typing-text">typing...</span>
+    </div>
+    <div class="chat-input-area">
+      <textarea class="chat-input" id="chat-input" placeholder="Type a message..." rows="1"></textarea>
+      <button class="btn btn-send" id="chat-send">
+        <span>💝</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== GAME PAGE ===== -->
+  <div id="page-game" class="page">
+    <div class="page-header">
+      <button class="btn btn-back" id="game-back">← Back</button>
+      <h2>🎮 Guess The AI</h2>
+      <div class="game-score" id="game-score">Score: 0/0</div>
+    </div>
+    <div class="game-container">
+      <div class="game-prompt" id="game-prompt">
+        <p>Which message is <strong>real</strong>?</p>
+      </div>
+      <div class="game-options" id="game-options">
+        <!-- Filled dynamically -->
+      </div>
+      <div class="game-result" id="game-result" style="display: none;">
+        <!-- Filled dynamically -->
+      </div>
+      <button class="btn btn-primary btn-lg" id="game-next" style="display: none;">Next Round →</button>
+    </div>
+    <div class="game-end" id="game-end" style="display: none;">
+      <div class="game-end-card">
+        <h2 id="game-end-title">🎉 Game Over!</h2>
+        <p id="game-end-score">You scored 7/10</p>
+        <p id="game-end-msg">You really know their texting style!</p>
+        <button class="btn btn-primary btn-lg" id="game-share">📸 Share Score</button>
+        <button class="btn btn-ghost btn-lg" id="game-restart">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SHARE CARD CANVAS ===== -->
+  <canvas id="share-canvas" width="600" height="800" style="display: none;"></canvas>
+
+  <!-- ===== MODEL LOADING OVERLAY ===== -->
+  <div class="model-overlay" id="model-overlay" style="display: none;">
+    <div class="model-loading">
+      <div class="loading-heart">💕</div>
+      <h3>Loading AI Model...</h3>
+      <p id="model-status">Downloading model (this happens once)...</p>
+      <div class="loading-bar">
+        <div class="loading-fill" id="model-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== AI SETTINGS MODAL ===== -->
+  <div class="confirm-overlay" id="settings-overlay" style="display: none;">
+    <div class="confirm-card settings-card">
+      <div class="confirm-icon">⚙️</div>
+      <h3>AI Engine Settings</h3>
+      <p class="settings-subtitle">Choose how HeartEcho generates replies</p>
+
+      <div class="settings-section">
+        <label class="settings-label">Provider</label>
+        <div class="settings-toggle" id="provider-toggle">
+          <button class="toggle-btn active" data-provider="gemini">🌟 Google Gemini</button>
+          <button class="toggle-btn" data-provider="openai">🤖 OpenAI</button>
+          <button class="toggle-btn" data-provider="local">🧠 Local (TinyLlama)</button>
+        </div>
+      </div>
+
+      <div class="settings-section" id="api-key-section">
+        <label class="settings-label" for="api-key-input">API Key</label>
+        <input type="password" class="settings-input" id="api-key-input" placeholder="Paste your API key here..." />
+        <p class="settings-hint" id="api-key-hint">Get a free key from <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a></p>
+      </div>
+
+      <div class="settings-section" id="model-section">
+        <label class="settings-label" for="model-select">Model</label>
+        <select class="settings-input" id="model-select">
+          <option value="gemini-2.0-flash">Gemini 2.0 Flash (Fast)</option>
+          <option value="gemini-2.0-flash-lite">Gemini 2.0 Flash Lite (Fastest)</option>
+          <option value="gemini-2.5-flash-preview-05-20">Gemini 2.5 Flash (Best)</option>
+        </select>
+      </div>
+
+      <div class="settings-section">
+        <div class="settings-status" id="settings-status"></div>
+      </div>
+
+      <div class="confirm-actions">
+        <button class="btn btn-ghost btn-lg" id="settings-cancel">Cancel</button>
+        <button class="btn btn-primary btn-lg" id="settings-save">💾 Save & Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DELETE CONFIRMATION MODAL ===== -->
+  <div class="confirm-overlay" id="confirm-overlay" style="display: none;">
+    <div class="confirm-card">
+      <div class="confirm-icon">💔</div>
+      <h3>Delete All Data?</h3>
+      <p>This will permanently remove all conversations, style profiles, and chat history from your device. This cannot be undone.</p>
+      <div class="confirm-actions">
+        <button class="btn btn-ghost btn-lg" id="confirm-cancel">Cancel</button>
+        <button class="btn btn-primary btn-lg" id="confirm-delete" style="background: linear-gradient(135deg, #dc2626, #ef4444);">🗑️ Delete Everything</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
